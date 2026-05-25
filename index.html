@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Noah Berlin | Nuclear Engineering</title>
+    <meta
+      name="description"
+      content="Personal website for Noah Berlin, a nuclear engineering student and researcher at the University of Michigan."
+    >
+    <link rel="preload" href="assets/michigan-cover.png" as="image">
+    <link rel="preload" href="assets/noah-profile.png" as="image">
+    <style>
+      :root {
+        --blue: #00274c;
+        --maize: #ffcb05;
+        --ink: #15191f;
+        --muted: #5f6975;
+        --line: #dce2e8;
+        --paper: #fbfbf8;
+        --white: #ffffff;
+        --green: #346b4e;
+        --steel: #eef3f6;
+        --shadow: 0 24px 70px rgba(15, 25, 38, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid rgba(220, 226, 232, 0.82);
+        background: rgba(251, 251, 248, 0.92);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        min-height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .monogram {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        color: var(--maize);
+        background: var(--blue);
+        border-radius: 8px;
+        font-weight: 900;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        color: #394250;
+        font-size: 0.94rem;
+        font-weight: 650;
+      }
+
+      .nav-links a {
+        padding: 8px 0;
+        border-bottom: 2px solid transparent;
+      }
+
+      .nav-links a:hover {
+        border-color: var(--maize);
+      }
+
+      .hero {
+        position: relative;
+        min-height: min(760px, calc(100vh - 150px));
+        display: grid;
+        align-items: end;
+        overflow: hidden;
+        background: var(--blue);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(0, 25, 49, 0.93), rgba(0, 39, 76, 0.72) 44%, rgba(20, 30, 38, 0.28)),
+          linear-gradient(0deg, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.02) 40%),
+          url("assets/michigan-cover.png") center / cover no-repeat;
+      }
+
+      .hero-inner {
+        position: relative;
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 72px 0 54px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 330px;
+        gap: 52px;
+        align-items: end;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--maize);
+        font-size: 0.82rem;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        color: var(--white);
+        font-size: clamp(3rem, 8vw, 6.6rem);
+        line-height: 0.92;
+        letter-spacing: 0;
+        max-width: 9ch;
+      }
+
+      .hero-copy {
+        margin: 24px 0 0;
+        max-width: 700px;
+        color: rgba(255, 255, 255, 0.88);
+        font-size: clamp(1.05rem, 1.65vw, 1.35rem);
+      }
+
+      .hero-actions {
+        margin-top: 34px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .button {
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        padding: 0 18px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        background: var(--maize);
+        color: #14213d;
+        font-weight: 800;
+      }
+
+      .button.secondary {
+        background: rgba(255, 255, 255, 0.12);
+        color: var(--white);
+      }
+
+      .profile-panel {
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .portrait {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 4px solid rgba(255, 255, 255, 0.9);
+      }
+
+      .quick-facts {
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 650;
+      }
+
+      .quick-facts li {
+        padding: 10px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.18);
+      }
+
+      main {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 82px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-header {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 44px;
+        align-items: start;
+        margin-bottom: 30px;
+      }
+
+      .label {
+        margin: 0;
+        color: var(--green);
+        font-size: 0.8rem;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin: 0;
+        color: var(--blue);
+        font-size: clamp(2rem, 4vw, 3.1rem);
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        margin: 16px 0 0;
+        max-width: 760px;
+        color: #394250;
+        font-size: 1.08rem;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .metric {
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--white);
+      }
+
+      .metric strong {
+        display: block;
+        color: var(--blue);
+        font-size: 1.9rem;
+        line-height: 1;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 650;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 18px;
+      }
+
+      .entry {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 28px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--white);
+      }
+
+      .entry time,
+      .entry .place {
+        color: var(--muted);
+        font-size: 0.94rem;
+        font-weight: 750;
+      }
+
+      .entry h3 {
+        margin: 0 0 8px;
+        color: var(--ink);
+        font-size: 1.18rem;
+        line-height: 1.25;
+      }
+
+      .entry p {
+        margin: 0;
+        color: #394250;
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .tag {
+        padding: 7px 10px;
+        border: 1px solid #cfd8df;
+        border-radius: 999px;
+        color: #394250;
+        background: var(--steel);
+        font-size: 0.88rem;
+        font-weight: 700;
+      }
+
+      .work-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .work-card {
+        min-height: 260px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--white);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .work-card h3 {
+        margin: 0;
+        color: var(--blue);
+        font-size: 1.3rem;
+        line-height: 1.2;
+      }
+
+      .work-card p {
+        margin: 18px 0 0;
+        color: #394250;
+      }
+
+      .work-card .meta {
+        margin-top: 22px;
+        color: var(--green);
+        font-size: 0.86rem;
+        font-weight: 850;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .contact-band {
+        margin: 82px 0;
+        padding: 42px;
+        border-radius: 8px;
+        color: var(--white);
+        background: linear-gradient(120deg, var(--blue), #163b54 58%, var(--green));
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .contact-band h2 {
+        color: var(--white);
+      }
+
+      .contact-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .footer {
+        padding: 32px 0 48px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 860px) {
+        .nav {
+          min-height: 62px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hero {
+          min-height: min(780px, calc(100vh - 120px));
+        }
+
+        .hero-inner {
+          grid-template-columns: 1fr;
+          padding: 60px 0 38px;
+          gap: 34px;
+        }
+
+        h1 {
+          max-width: 8ch;
+        }
+
+        .profile-panel {
+          max-width: 340px;
+        }
+
+        .section {
+          padding: 58px 0;
+        }
+
+        .section-header,
+        .entry,
+        .contact-band {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .metrics,
+        .work-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .entry,
+        .contact-band {
+          padding: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Noah Berlin home">
+          <span class="monogram">NB</span>
+          <span>Noah Berlin</span>
+        </a>
+        <div class="nav-links">
+          <a href="#research">Research</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">University of Michigan Nuclear Engineering</p>
+          <h1>Noah R. Berlin</h1>
+          <p class="hero-copy">
+            Nuclear engineering student and researcher focused on advanced energy systems,
+            fusion waste policy, radiation visualization, and practical engineering work
+            that connects science with public impact.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="mailto:nrberlin@umich.edu">Email Noah</a>
+            <a class="button secondary" href="assets/noah-berlin-resume.pdf">View Resume</a>
+            <a class="button secondary" href="https://linkedin.com/in/noah-berlin">LinkedIn</a>
+          </div>
+        </div>
+
+        <aside class="profile-panel" aria-label="Profile summary">
+          <img class="portrait" src="assets/noah-profile.png" alt="Noah Berlin">
+          <ul class="quick-facts">
+            <li>B.S.E. Nuclear Engineering, expected May 2028</li>
+            <li>Researcher at the University of Michigan</li>
+            <li>American Nuclear Society, Vice President</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <main>
+      <section class="section" id="about">
+        <div class="section-header">
+          <p class="label">Profile</p>
+          <div>
+            <h2>Engineering discipline with a public-interest lens.</h2>
+            <p class="lead">
+              Noah is building a foundation across nuclear engineering, applied mathematics,
+              programming, materials, and policy. His work spans fusion waste readiness,
+              particle detection hardware, water-quality analysis, and hands-on leadership
+              roles where safety, communication, and reliability matter.
+            </p>
+            <div class="metrics" aria-label="Highlights">
+              <div class="metric">
+                <strong>3.72</strong>
+                <span>University of Michigan GPA</span>
+              </div>
+              <div class="metric">
+                <strong>4/400</strong>
+                <span>High school class rank</span>
+              </div>
+              <div class="metric">
+                <strong>4 yrs</strong>
+                <span>Science research track</span>
+              </div>
+              <div class="metric">
+                <strong>2028</strong>
+                <span>Expected B.S.E. graduation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="research">
+        <div class="section-header">
+          <p class="label">Research</p>
+          <div>
+            <h2>Current work in nuclear systems, materials, and environmental data.</h2>
+            <p class="lead">
+              Noah's projects combine technical analysis with systems thinking, from
+              investigating regulatory preparedness for commercial fusion to developing
+              hardware for radiation visualization.
+            </p>
+          </div>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card">
+            <div>
+              <h3>Fusion Waste Policy Research</h3>
+              <p>
+                Evaluates deployment scenarios and policy solutions for underappreciated
+                fusion waste challenges, including regulatory frameworks and infrastructure readiness.
+              </p>
+            </div>
+            <div class="meta">University of Michigan</div>
+          </article>
+
+          <article class="work-card">
+            <div>
+              <h3>Project Aurora</h3>
+              <p>
+                Assists the design of a solid-state particle detector and Peltier-cooled cloud
+                chamber intended to replace traditional dry ice with efficient cooling modules.
+              </p>
+            </div>
+            <div class="meta">M-Atomics</div>
+          </article>
+
+          <article class="work-card">
+            <div>
+              <h3>Long Island Sound Hypoxia</h3>
+              <p>
+                Analyzed thousands of data points across ten variables to identify primary
+                causes of hypoxia and support targeted remediation efforts.
+              </p>
+            </div>
+            <div class="meta">Independent Research</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="experience">
+        <div class="section-header">
+          <p class="label">Experience</p>
+          <div>
+            <h2>Research, internship, and leadership experience.</h2>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <article class="entry">
+            <div>
+              <time>March 2026 - Present</time>
+              <div class="place">Ann Arbor, MI</div>
+            </div>
+            <div>
+              <h3>Researcher, University of Michigan</h3>
+              <p>
+                Investigating fusion waste deployment scenarios, fission waste policy adaptability,
+                and infrastructure preparedness under the mentorship of Professor Aditi Verma
+                and Muhammad Rafiul Abdussami.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Fusion policy</span>
+                <span class="tag">Regulatory analysis</span>
+                <span class="tag">Energy systems</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="entry">
+            <div>
+              <time>June 2026 - August 2026</time>
+              <div class="place">Upton, NY</div>
+            </div>
+            <div>
+              <h3>Nuclear Engineering Intern, Brookhaven National Laboratory</h3>
+              <p>
+                Selected for the U.S. DOE Scientific Undergraduate Laboratory Internships
+                program to work with Dr. Mehmet Topsakal in the Materials for Energy
+                Applications Group.
+              </p>
+              <div class="tag-list">
+                <span class="tag">DOE SULI</span>
+                <span class="tag">Materials for energy</span>
+                <span class="tag">National lab</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="entry">
+            <div>
+              <time>Summer 2025</time>
+              <div class="place">Camp Taconic</div>
+            </div>
+            <div>
+              <h3>Counselor and Lifeguard</h3>
+              <p>
+                Taught waterskiing across skill levels, managed waterfront logistics and
+                equipment, provided surveillance and emergency response, and helped lead
+                safety standards for nine campers.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Red Cross certified</span>
+                <span class="tag">Waterfront safety</span>
+                <span class="tag">Team leadership</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="education">
+        <div class="section-header">
+          <p class="label">Education</p>
+          <div>
+            <h2>University of Michigan College of Engineering.</h2>
+            <p class="lead">
+              B.S.E. in Nuclear Engineering, expected May 2028. Coursework includes
+              introductory nuclear engineering, applied mathematics for engineering physics,
+              sustainable engineering and materials, and programming in C++ and MATLAB.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Nuclear engineering</span>
+              <span class="tag">Applied mathematics</span>
+              <span class="tag">Materials</span>
+              <span class="tag">C++</span>
+              <span class="tag">MATLAB</span>
+              <span class="tag">American Nuclear Society</span>
+              <span class="tag">Michigan Materials Society</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-band" id="contact">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Based in Ann Arbor and Melville, NY.</h2>
+          <p class="lead">
+            For research, internship, or project conversations, reach Noah through email or LinkedIn.
+          </p>
+        </div>
+        <div class="contact-links">
+          <a class="button" href="mailto:nrberlin@umich.edu">nrberlin@umich.edu</a>
+          <a class="button secondary" href="https://linkedin.com/in/noah-berlin">LinkedIn</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Noah R. Berlin | Nuclear Engineering | University of Michigan</span>
+    </footer>
+  </body>
+</html>
